@@ -11,103 +11,198 @@ var bio = {
 			'location': 'North Attleboro, MA'
 		}
 	],
-	'welcomeMessage': 'PLACEHOLDER',
-	'skills': ['PLACEHOLDERS'],
-	'biopic': 'PLACEHOLDER.com'
-}
-$('#header').append(bio.name);
+	'welcomeMessage': 'Thanks for visiting my page',
+	'skills': ['HTML', 'CSS', 'Awesomeness', 'Rubiks Cube Solving'],
+	'biopic': 'images/fry.jpg'
+};
 
 var education = {
 	'schools': [
 		{
 			'name': 'Bryant University',
 			'location': 'Smithfield, RI',
-			'degree': 'Bachelors of Arts, Communication',
-			'minors': ['Marketing', 'Business Administration'],
-			'graduation date': 2010,
-			'url': 'http://www.bryant.edu/'
+			'degree': 'Bachelors of Arts',
+			'majors': ['Communication'],
+			'dates': '2007-2010',
+			'url': '<a href="http://bryant.edu/">http://bryant.edu/</a>'
 		},
 		{
 			'name': 'Rhode Island School of Design',
 			'location': 'Providence, RI',
-			'certificate': 'Animation',
-			'year of completion': 2013,
-			'url': 'http://www.risd.edu/'
+			'degree': 'Certificate',
+			'majors': 'Animation',
+			'dates': '2011-2013',
+			'url': '<a href="http://risd.edu/">http://risd.edu/</a>'
 		}
 	],
 	'onlineCourses': [
 	{
-		'name': 'Front-End Nanodegree',
-		'school': 'Udacity',
-		'anticipated graduation': 2015,
-		'url': 'https://www.udacity.com/'
-	},
-	{
 		'name': 'HTML & CSS',
 		'school': 'Code Academy',
-		'completed': 2014,
-		'url': 'http://www.codecademy.com/'
+		'dates': '2014',
+		'url': '<a href="http://www.codecademy.com/en/tracks/web">http://www.codecademy.com</a>'
+	},
+	{
+		'name': 'Front-End Nanodegree',
+		'school': 'Udacity',
+		'dates': '2015',
+		'url': '<a href="https://www.udacity.com/course/nd001">https://www.udacity.com</a>'
 	},
 	{
 		'name': 'Try Git',
 		'school': 'Code School',
-		'completed': 2015,
-		'url': 'https://www.codeschool.com/courses/try-git'
+		'dates': '2015',
+		'url': '<a href="https://www.codeschool.com/courses/try-git">https://www.codeschool.com</a>'
 	}
 	]
-}
+};
 
 var work = {
-	'jobs': [
-	{
-		'employer': 'International Forest Products',
-		'location': 'Foxboro, MA',
-		'positions': [
-			{
-				'title': 'Accounts Payable Coordinator',
-				'dates': 'July 2014-present',
-				'description': 'PLACEHOLDER'
-			},
-			{
-				'title': 'Office Assistant',
-				'dates': 'January 2014-July 2014',
-				'description': 'PLACEHOLDER'
-			}
-		]
-	},
-	{
-		'employer': 'Plant Essentials',
-		'location': 'North Attleboro, MA',
-		'position': 'Lead Merchandiser',
-		'dates': 'April 2009-October 2013',
-		'description': 'PLACEHOLDER'
-	}
-	]
-}
+    'jobs': [
+        {
+            'employer': 'International Forest Products',
+            'location': 'Foxboro, MA',
+            'title': 'Accounts Payable Coordinator',
+            'dates': 'January 2014-present',
+            'description': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. '
+        },
+        {
+            'employer': 'Plant Essentials',
+            'location': 'North Attleboro, MA',
+            'title': 'Lead Merchandiser',
+            'dates': 'April 2009-October 2013',
+            'description': 'Mauris ipsum. Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh. Quisque volutpat condimentum velit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam nec ante. Sed lacinia, urna non tincidunt mattis, tortor neque adipiscing diam, a cursus ipsum ante quis turpis. Nulla facilisi. Ut fringilla. Suspendisse potenti. Nunc feugiat mi a tellus consequat imperdiet. Vestibulum sapien. Proin quam. '
+        }
+    ]
+};
 
 var projects = {
 	'projects': [
 	{
 		'title': 'HTML MockUp',
 		'dates': 'February 2015',
-		'description': 'Create a responsive website from a design mockup'
+		'description': 'Create a responsive website from a design mockup',
+		'images': ''
 	},
 	{
 		'title': 'Resume',
 		'dates': 'February-March 2015',
-		'description': 'Create an interactive resume'
+		'description': 'Create an interactive resume',
+		'images': ''
 	},
 	{
 		'title': 'Splash',
 		'dates': 'January 2013',
-		'description': 'Animate a splash in a pool of water'
+		'description': 'Animate a splash in a pool of water',
+		'images': ''
 	}
 	]
-	display:
-}
+};
 
-//append to the page
-$("#main").append(bio.name);
-$("#main").append(bio.role);
-$("#main").append(bio.contact);
-$("#main").append(bio.skills);
+//append bio section
+var displayBio = function() {
+	var formattedRole = HTMLheaderName.replace('%data%', bio.role);
+	$('#header').prepend(formattedRole);
+	var formattedName = HTMLheaderName.replace('%data%', bio.name);
+	$('#header').prepend(formattedName);
+	var formattedPic = HTMLbioPic.replace('%data%', bio.biopic);
+	$('#header').append(formattedPic);
+	var FormattedWelcome = HTMLWelcomeMsg.replace('%data%', bio.welcomeMessage);
+	$('#header').append(FormattedWelcome);
+	if (bio.skills.length > 0) {
+		$('#header').append(HTMLskillsStart);
+	}
+	for(skill in bio.skills) {
+		var formattedSkill = HTMLskills.replace('%data%', bio.skills[skill]);
+		$('#skills').append(formattedSkill);
+	}
+};
+displayBio();
+//append contact information
+var displayContacts = function() {
+	for(contact in bio.contacts) {
+		var formattedMobile = HTMLmobile.replace('%data%', bio.contacts[contact].mobile);
+		$('#topContacts').append(formattedMobile);
+		var formattedEmail = HTMLemail.replace('%data%', bio.contacts[contact].email);
+		$('#topContacts').append(formattedEmail);
+		var formattedGithub = HTMLgithub.replace('%data%', bio.contacts[contact].github);
+		$('#topContacts').append(formattedGithub);
+		var formattedTwitter = HTMLtwitter.replace('%data%', bio.contacts[contact].twitter);
+		$('#topContacts').append(formattedTwitter);
+		var formattedBioLocation = HTMLlocation.replace('%data%', bio.contacts[contact].location);
+		$('#topContacts').append(formattedBioLocation);
+	};
+};
+displayContacts();
+//append education section
+//append schools
+var displaySchools = function() {
+	for (school in education.schools) {
+		$('#education').append(HTMLschoolStart);
+		var formattedSchoolName = HTMLschoolName.replace('%data%', education.schools[school].name);
+		$('.education-entry:last').append(formattedSchoolName);
+		var formattedSchoolLocation = HTMLschoolLocation.replace('%data%', education.schools[school].location);
+		$('.education-entry:last').append(formattedSchoolLocation);
+		var formattedSchoolDates = HTMLschoolDates.replace('%data%', education.schools[school].dates);
+		$('.education-entry:last').append(formattedSchoolDates);
+		var formattedSchoolDegree = HTMLschoolDegree.replace('%data%', education.schools[school].degree);
+		$('.education-entry:last').append(formattedSchoolDegree);
+		var formattedSchoolMajor = HTMLschoolMajor.replace('%data%', education.schools[school].majors);
+		$('.education-entry:last').append(formattedSchoolMajor);
+		var formattedSchoolURL = HTMLschoolURL.replace('<a href="#">%data%</a>', education.schools[school].url);
+		$('.education-entry:last').append(formattedSchoolURL);
+	}
+};
+displaySchools();
+//append online courses
+var displayCourses = function() {
+	$('.education-entry:last').append(HTMLonlineClasses);
+	for (course in education.onlineCourses) {
+		var formattedCourseTitle = HTMLonlineTitle.replace('%data%', education.onlineCourses[course].name);
+		$('.education-entry:last').append(formattedCourseTitle);
+		var formattedCourseSchool = HTMLonlineSchool.replace('%data%', education.onlineCourses[course].school);
+		$('.education-entry:last').append(formattedCourseSchool);
+		var formattedCourseDates = HTMLonlineDates.replace('%data%', education.onlineCourses[course].dates);
+		$('.education-entry:last').append(formattedCourseDates);
+		var formattedCourseURL = HTMLonlineURL.replace('%data%', education.onlineCourses[course].url);
+		$('.education-entry:last').append(formattedCourseURL);
+	}
+};
+displayCourses();
+//append work section
+var displayWork = function() {
+	for (job in work.jobs) {
+		$('#workExperience').append(HTMLworkStart);
+		var formattedEmployer = HTMLworkEmployer.replace('%data%', work.jobs[job].employer);
+		var formattedTitle = HTMLworkTitle.replace('%data%', work.jobs[job].title);
+		var formattedEmployerTitle = formattedEmployer + formattedTitle;
+		$('.work-entry:last').append(formattedEmployerTitle);
+		var formattedDates = HTMLworkDates.replace('%data%', work.jobs[job].dates);
+		var formattedLocation = HTMLworkLocation.replace('%data%', work.jobs[job].location);
+		var formattedDatesLocation = formattedDates + formattedLocation;
+		$('.work-entry:last').append(formattedDatesLocation);
+		var formattedDescription = HTMLworkDescription.replace('%data%', work.jobs[job].description);
+		$('.work-entry:last').append(formattedDescription);
+	}
+};
+displayWork();
+
+//append projects section
+var displayProjects = function() {
+	for (project in projects.projects) {
+		$('#projects').append(HTMLprojectStart);
+		var formattedProjectTitle = HTMLprojectTitle.replace('%data%', projects.projects[project].title);
+		$('.project-entry:last').append(formattedProjectTitle);
+		var formattedProjectDates = HTMLprojectDates.replace('%data%', projects.projects[project].dates);
+		$('.project-entry:last').append(formattedProjectDates);
+		var formattedProjectDescription = HTMLprojectDescription.replace('%data%', projects.projects[project].description);
+		$('.project-entry:last').append(formattedProjectDescription);
+		if (projects.projects[project].images.length > 0) {
+			for (image in projects.projects[project].images) {
+				var formattedImage = HTMLprojectImage.replace('%data%', projects.projects[project].images[image]);
+				$('.project-entry:last').append(formattedImage);
+			}
+		}
+	}
+};
+displayProjects();
