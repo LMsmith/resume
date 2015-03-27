@@ -90,6 +90,16 @@ a {
   display: none;
 }
 
+#skills {
+  display: list-item;
+  font-size: 18px;
+}
+
+#role {
+  font-size: 24px;
+  color: white;
+}
+
 .orange {
   background-color: #F5AE23;
 }
